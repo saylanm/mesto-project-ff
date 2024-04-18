@@ -10,6 +10,7 @@ function AddCard(element, deleteCard) { // функция по добавлен�
 
   title.textContent = element.name;
 
+
   img.src = element.link;
   img.alt = element.name;
 
