@@ -1,12 +1,12 @@
 // @todo: Темплейт карточки
 const placesList = document.querySelector(".places__list"); // заводим переменную
 
-function AddCard(element, deleteCard) { // функция по добавлению карточки и поиска через DOM элементов
+function addCard(element, deleteCard) { // функция по добавлению карточки и поиска через DOM элементов
 
-  const card_template = document.querySelector("#card-template").content; // находим карточку temlate
-  const card_element = card_template.cloneNode(true); //содержит ли карточка элемент
-  const title = card_element.querySelector(".card__title"); // находим описание
-  const img = card_element.querySelector(".card__image"); // находим картинку
+  const cardTemplate = document.querySelector("#card-template").content; // находим карточку temlate
+  const cardElement = cardTemplate.cloneNode(true); //содержит ли карточка элемент
+  const title = cardElement.querySelector(".card__title"); // находим описание
+  const img = cardElement.querySelector(".card__image"); // находим картинку
 
   title.textContent = element.name;
 
@@ -14,10 +14,10 @@ function AddCard(element, deleteCard) { // функция по добавлен�
   img.src = element.link;
   img.alt = element.name;
 
-  const delete_button = card_element.querySelector(".card__delete-button");
+  const deleteButton = cardElement.querySelector(".card__delete-button");
   
-  delete_button.addEventListener("click", deleteCard);
-  return card_element;
+  deleteButton.addEventListener("click", deleteCard);
+  return cardElement;
 }
 
 function deleteCard(event) { // фуникция по удалению карточки 
@@ -26,5 +26,5 @@ function deleteCard(event) { // фуникция по удалению карт�
 }
 
 initialCards.forEach((element) => {
-  placesList.append(AddCard(element, deleteCard));
+  placesList.append(addCard(element, deleteCard));
 });
