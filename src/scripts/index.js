@@ -28,3 +28,4 @@ function deleteCard(event) { // фуникция по удалению карт�
 initialCards.forEach((element) => {
   placesList.append(createCard(element, deleteCard));
 });
+
