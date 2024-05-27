@@ -1,7 +1,7 @@
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin"); // плагин
+const { CleanWebpackPlugin } = require("clean-webpack-plugin"); // плагин
+const MiniCssExtractPlugin = require("mini-css-extract-plugin"); // плагин
 
 module.exports = {
   entry: { main: "./src/scripts/index.js" },
@@ -25,7 +25,7 @@ module.exports = {
         exclude: "/node_modules/",
       },
       {
-        test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
+        test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/, // находит все перечисленные форматы 
         type: "asset/resource",
       },
       {
