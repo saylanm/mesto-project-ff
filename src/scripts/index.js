@@ -7,6 +7,7 @@ function createCard(element, deleteCard) { // функция по добавле
   const cardElement = cardTemplate.cloneNode(true); //содержит ли карточка элемент
   const title = cardElement.querySelector(".card__title"); // находим описание
   const img = cardElement.querySelector(".card__image"); // находим картинку
+  const popup__close = document.querySelector('.popup__close');
 
   title.textContent = element.name;
 
@@ -20,12 +21,15 @@ function createCard(element, deleteCard) { // функция по добавле
   return cardElement;
 }
 
+// функция по удалению карточки 
 function deleteCard(event) { // фуникция по удалению карточки 
   const card = event.target.closest(".card");
   card.remove();
 }
 
-initialCards.forEach((element) => {
-  placesList.append(createCard(element, deleteCard));
+// вывести карточки на экран 
+initialCards.forEach((card) => {
+  const createdCard = createCard(card, deleteCard);
+  placesList.append(createdCard);
 });
 
