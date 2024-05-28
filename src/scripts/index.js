@@ -57,3 +57,11 @@ const closePopup = popup_card.querySelector('.popup__close');
 closePopup.addEventListener('click', function () {
   popup_card.style.display = 'none';
 });
+
+// Закрытие попапа при клике на оверлей то есть нажимаем за пределы окна
+overlay.addEventListener('click', function(event) {
+  // Проверяем, был ли клик непосредственно на оверлее (не на его потомках)
+  if (event.target === overlay) {
+    closePopup();
+  }
+});
