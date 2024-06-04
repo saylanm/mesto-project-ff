@@ -19,6 +19,36 @@
   cursor: pointer;
 }
 
+.submit_inactive {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 1);
+  color: rgba(0, 0, 0, 1);
+}
+
+.submit_inactive:hover {
+  background: white;
+  cursor: default;
+}
+
+.popup__button span {
+  display: none;
+  animation: loader 2s ease-in-out infinite;
+}
+
+.popup__button span:nth-child(2) {
+  animation-delay: .4s;
+}
+
+.popup__button span:nth-child(3) {
+  animation-delay: .8s;
+}
+
+@keyframes loader {
+  50% {
+    opacity: 0;
+  }
+}
+
 @media screen and (max-width: 568px) {
   .popup__button {
     font-size: 14px;
