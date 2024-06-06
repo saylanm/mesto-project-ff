@@ -115,7 +115,6 @@ profileEditButton.addEventListener('click', () => {
   // clearValidation очищает поля и переключает кнопку. После установки значений в поля
   // Для clearValidation они не видны и кнопка остается disabled=true. Есди поменять места
   // Очистятся инпуты. Далее костыль
-  buttonFormEditProfile.disabled = false;
   buttonFormEditProfile.classList.remove('submit_inactive');
 });
 
