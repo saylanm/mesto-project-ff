@@ -18,104 +18,63 @@ function getUserData() {
   });
 }
 
-function getInitialCards () {
-  return fetch(`${config.baseUrl}/cards`, {
+function getInitialCards() {
+  return request('/cards', {
     headers: config.headers
-  })
-  .then((res) => {
-    if(res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
-  })
+  });
 }
 
-function patchUserInfo (editProfileName, editProfileDescription) {
-  return fetch(`${config.baseUrl}/users/me`, {
+function patchUserInfo(editProfileName, editProfileDescription) {
+  return request('/users/me', {
     method: 'PATCH',
     headers: config.headers,
     body: JSON.stringify({
       name: editProfileName.value,
       about: editProfileDescription.value
     })
-  })
-  .then((res) => {
-    if(res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
-  })
+  });
 }
 
-function postNewCard (formNewPlaceInputName, formNewPlaceInputLink) {
-  return fetch(`${config.baseUrl}/cards`, {
+function postNewCard(formNewPlaceInputName, formNewPlaceInputLink) {
+  return request('/cards', {
     method: 'POST',
     headers: config.headers,
     body: JSON.stringify({
       name: formNewPlaceInputName.value,
       link: formNewPlaceInputLink.value
     })
-  })
-  .then((res) => {
-    if(res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
-  })}
+  });
+}
 
-  function deleteCard (id) {
-  return fetch(`${config.baseUrl + '/cards/' + id}`, {
+function deleteCard(id) {
+  return request(`/cards/${id}`, {
     method: 'DELETE',
     headers: config.headers
-  })
-  .then((res) => {
-    if(res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
-  })
+  });
 }
 
-function likeCard (id) {
-  return fetch(`${config.baseUrl + '/cards/likes/' + id}`, {
-  method: 'PUT',
-  headers: config.headers
-})
-.then((res) => {
-  if(res.ok) {
-    return res.json();
-  }
-  return Promise.reject(`Ошибка: ${res.status}`);
-})
+function likeCard(id) {
+  return request(`/cards/likes/${id}`, {
+    method: 'PUT',
+    headers: config.headers
+  });
 }
 
-function deleteLike (id) {
-  return fetch(`${config.baseUrl + '/cards/likes/' + id}`, {
+function deleteLike(id) {
+  return request(`/cards/likes/${id}`, {
     method: 'DELETE',
     headers: config.headers
-  })
-  .then((res) => {
-    if(res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
-  })
+  });
 }
 
-function editAvatar (input) {
-  return fetch(`${config.baseUrl}/users/me/avatar`, {
+function editAvatar(input) {
+  return request('/users/me/avatar', {
     method: 'PATCH',
     headers: config.headers,
     body: JSON.stringify({
       avatar: input.value
     })
-  })
-  .then((res) => {
-    if(res.ok) {
-      return res.json();
-    }
-    return Promise.reject(`Ошибка: ${res.status}`);
-  })
+  });
 }
 
-export {getUserData, getInitialCards, patchUserInfo, postNewCard, deleteCard, likeCard, deleteLike, editAvatar}
+export { getUserData, getInitialCards, patchUserInfo, postNewCard, deleteCard, likeCard, deleteLike, editAvatar };
