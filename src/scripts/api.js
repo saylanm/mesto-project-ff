@@ -1,5 +1,4 @@
-import { request } from './/utils/request';
-import { config } from './config';
+import { checkResponse } from '../utils/utils'
 
 const config = {
   baseUrl: 'https://nomoreparties.co/v1/wff-cohort-14',
@@ -9,8 +8,12 @@ const config = {
   }
 }
 
+function request(endpoint, options) {
+  return fetch(`${config.baseUrl}${endpoint}`, options).then(checkResponse);
+}
+
 function getUserData() {
-  return request(`${config.baseUrl}/users/me`, {
+  return request('/users/me', {
     headers: config.headers
   });
 }
